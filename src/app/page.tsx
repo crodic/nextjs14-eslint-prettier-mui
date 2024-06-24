@@ -13,7 +13,7 @@ export default function Home() {
                 variant="contained"
                 onClick={() => toggleTheme()}
             >
-                Theme
+                Theme Toggle
             </Button>
         </Container>
     )
