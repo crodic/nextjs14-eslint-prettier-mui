@@ -1,0 +1,32 @@
+{
+    "extends": [
+        "next/core-web-vitals",
+        "prettier",
+        "plugin:@typescript-eslint/recommended",
+        "eslint:recommended",
+        "next"
+    ],
+    "plugins": ["@typescript-eslint"],
+    "rules": {
+        "no-console": "error",
+        "semi": "off",
+        "comma-dangle": "off",
+        "no-unused-vars": "off",
+        "no-unexpected-multiline": "warn",
+        "key-spacing":"off",
+        "@typescript-eslint/semi": ["error", "never"],
+        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/comma-dangle": [
+            "warn",
+            {
+                "arrays": "never",
+                "objects": "always-multiline",
+                "imports": "never",
+                "exports": "never",
+                "functions": "never"
+            }
+        ],
+        "@typescript-eslint/no-empty-function": "warn",
+        "@typescript-eslint/key-spacing": ["error", {"afterColon": true}]
+    }
+}
