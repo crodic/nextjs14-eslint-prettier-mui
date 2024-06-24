@@ -3,6 +3,7 @@
 import { ThemeProvider } from '@mui/material/styles'
 import { ReactNode, createContext, useContext, useEffect, useState } from 'react'
 import { getTheme } from './theme'
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter'
 
 type Theme = 'light' | 'dark'
 
@@ -35,7 +36,9 @@ export const MuiThemeProvider = ({ initialTheme, children }: { initialTheme: The
 
     return (
         <ThemeContext.Provider value={{ theme, toggleTheme }}>
-            <ThemeProvider theme={getTheme(theme)}>{children}</ThemeProvider>
+            <AppRouterCacheProvider options={{ key: 'css' }}>
+                <ThemeProvider theme={getTheme(theme)}>{children}</ThemeProvider>
+            </AppRouterCacheProvider>
         </ThemeContext.Provider>
     )
 }

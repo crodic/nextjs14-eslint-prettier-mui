@@ -5,9 +5,8 @@ import { cookies } from 'next/headers'
 import { CssBaseline } from '@mui/material'
 import NextProviders from '@/components/NextProviders'
 import { MuiThemeProvider } from '@/themes/MuiThemeProvider'
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter'
 import { ReactNode } from 'react'
-import NextTopLoader from 'nextjs-toploader'
+import ProgressBar from '@/components/layout/ProgressBar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,18 +25,16 @@ export default function RootLayout({
     return (
         <html
             lang="en"
-            data-mui-color-scheme={theme?.value}
+            data-theme={theme?.value}
             suppressHydrationWarning>
             <body className={inter.className}>
-                <AppRouterCacheProvider options={{ key: 'mui' }}>
-                    <NextProviders>
-                        <MuiThemeProvider initialTheme={theme?.value as 'light' | 'dark'}>
-                            <CssBaseline />
-                            <NextTopLoader />
-                            {children}
-                        </MuiThemeProvider>
-                    </NextProviders>
-                </AppRouterCacheProvider>
+                <NextProviders>
+                    <MuiThemeProvider initialTheme={theme?.value as 'light' | 'dark'}>
+                        <CssBaseline />
+                        <ProgressBar />
+                        {children}
+                    </MuiThemeProvider>
+                </NextProviders>
             </body>
         </html>
     )

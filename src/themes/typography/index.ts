@@ -1,6 +1,6 @@
 'use client'
 import { TypographyOptions } from '@mui/material/styles/createTypography'
-import { Roboto } from 'next/font/google'
+import { Dancing_Script, Roboto } from 'next/font/google'
 
 // ----------------------------------------------------------------------
 
@@ -32,8 +32,19 @@ const roboto = Roboto({
     display: 'swap',
 })
 
+const dancingScript = Dancing_Script({
+    weight: ['700'],
+    subsets: ['latin'],
+    display: 'swap',
+})
+
 export const typography = {
     fontFamily: roboto.style.fontFamily,
+    fontFamilySecondary: dancingScript.style.fontFamily,
+    fontWeightRegular: 400,
+    fontWeightMedium: 500,
+    fontWeightSemiBold: 600,
+    fontWeightBold: 700,
     h1: {
         fontWeight: 800,
         lineHeight: 80 / 64,

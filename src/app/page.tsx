@@ -1,12 +1,20 @@
 'use client'
 import { useTheme as useContextTheme } from '@/themes/MuiThemeProvider'
-import { Box, Button } from '@mui/material'
+import { Button, Container } from '@mui/material'
 
 export default function Home() {
     const { toggleTheme } = useContextTheme()
     return (
-        <Box>
-            <Button onClick={() => toggleTheme()}>Change</Button>
-        </Box>
+        <Container
+            maxWidth="lg"
+            sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}
+        >
+            <Button
+                variant="contained"
+                onClick={() => toggleTheme()}
+            >
+                Theme
+            </Button>
+        </Container>
     )
 }
